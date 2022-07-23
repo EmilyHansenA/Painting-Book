@@ -72,5 +72,25 @@ public class brush : MonoBehaviour
                 _texture.Apply();
             }
         }
+
+        if(Input.GetMouseButton(0) && (toolsPicker._Fill == true)) {
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+            RaycastHit hit;
+            if (_collider.Raycast(ray, out hit, 200f))
+            {
+                int rayX = (int)(hit.textureCoord.x * _textureSize);
+                int rayY = (int)(hit.textureCoord.y * _textureSize);
+
+                for (int y = 0; y < _brushSize; y++)
+                {
+                    for (int x = 0; x < _brushSize; x++)
+                    {
+                        _texture.SetPixel(rayX + x, rayY + y, _color);
+                    }
+                }
+                _texture.Apply();
+        }
+    }
     }
 }

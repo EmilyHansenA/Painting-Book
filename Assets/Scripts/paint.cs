@@ -23,7 +23,7 @@ public class paint : MonoBehaviour
     {
         if (toolsPicker._Eraser == true)
         {
-            solid.color = Color.white;
+            solid.color = Color.clear;
         }
     }
 }
