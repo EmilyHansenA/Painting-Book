@@ -15,9 +15,6 @@ public class brush : MonoBehaviour
     [SerializeField] private Color _color;
     [SerializeField] private int _brushSize = 8;
 
-    [SerializeField] private int resolutionX = 128;
-    [SerializeField] private int resolutionY = 128;
-
     private void OnValidate()
     {
         if (_texture == null)

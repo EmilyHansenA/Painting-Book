@@ -13,6 +13,5 @@ public class colorPicker : MonoBehaviour
     public void chanceColor(int index)
     {
         newColor = selectColor[index].image.color;
-        Debug.Log(newColor);
     }
 }
