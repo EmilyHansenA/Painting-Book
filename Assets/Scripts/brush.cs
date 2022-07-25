@@ -11,22 +11,29 @@ public class brush : MonoBehaviour
     [SerializeField] private Collider _collider;
 
     [SerializeField] private int brushSize = 8;
+    [SerializeField] private int fillSize = 500;
+    [SerializeField] private int eraserSize = 20;
     [SerializeField] private int textureSize = 128;
     private void Update()
     {
+        //Brush
         if (Input.GetMouseButton(0) && (toolsPicker.selectedTool == toolsPicker.brushName))
         {
-            Painting(colorPicker.newColor);
+            Painting(colorPicker.newColor, brushSize);
         }
+
+        //Fill
         if (Input.GetMouseButton(0) && (toolsPicker.selectedTool == toolsPicker.fillName))
         {
-            Painting(colorPicker.newColor);
+            Painting(colorPicker.newColor, fillSize);
         }
+        //Eraser
         if (Input.GetMouseButton(0) && (toolsPicker.selectedTool == toolsPicker.eraserName))
         {
-            Painting(Color.white);
+            Painting(Color.white, eraserSize);
         }
     }
+
     private void OnValidate()
     {
         if (_texture == null)
@@ -42,7 +49,8 @@ public class brush : MonoBehaviour
             _material.mainTexture = _texture;
             _texture.Apply();
     }
-    private void Painting(Color selectedColor)
+
+    private void Painting(Color selectedColor, int toolSize)
     {
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
@@ -52,9 +60,9 @@ public class brush : MonoBehaviour
             int rayX = (int)(hit.textureCoord.x * textureSize);
             int rayY = (int)(hit.textureCoord.y * textureSize);
 
-            for (int y = 0; y < brushSize; y++)
+            for (int y = 0; y < toolSize; y++)
             {
-                for (int x = 0; x < brushSize; x++)
+                for (int x = 0; x < toolSize; x++)
                 {
                     _texture.SetPixel(rayX + x, rayY + y, selectedColor);
                 }
