@@ -1,29 +1,30 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class paint : MonoBehaviour
 {
-    public SpriteRenderer solid;
-
+    private SpriteRenderer _solid;
+    private void Start()
+    {
+        _solid = GetComponent<SpriteRenderer>();
+    }
     private void OnMouseDown()
     {
-        Fill();
-        Eraser();
+        fillObject();
+        eraserObject();
+    }
+    private void fillObject()
+    {
+        if (toolsPicker.selectedTool == toolsPicker.fillName)
+        {
+            _solid.color = colorPicker.newColor;
+        }
+    }
+    private void eraserObject()
+    {
+        if (toolsPicker.selectedTool == toolsPicker.eraserName)
+        {
+            _solid.color = Color.white;
+        }
     }
 
-    public void Fill()
-    {
-        if (toolsPicker._Fill == true)
-        {
-            solid.color = colorPicker.newColor;
-        }
-    }
-    public void Eraser()
-    {
-        if (toolsPicker._Eraser == true)
-        {
-            solid.color = Color.clear;
-        }
-    }
 }

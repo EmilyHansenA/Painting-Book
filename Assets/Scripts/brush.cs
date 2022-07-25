@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class brush : MonoBehaviour
 {
-    [SerializeField] private int _textureSize = 128;
     [SerializeField] private TextureWrapMode _textureWrapMode;
     [SerializeField] private FilterMode _filterMode;
     [SerializeField] private Texture2D _texture;
@@ -12,85 +9,62 @@ public class brush : MonoBehaviour
 
     [SerializeField] private Camera _camera;
     [SerializeField] private Collider _collider;
-    [SerializeField] private Color _color;
-    [SerializeField] private int _brushSize = 8;
 
+    //Размер кисти и текстуры
+    [SerializeField] private int brushSize = 8;
+    [SerializeField] private int textureSize = 128;
+    private void Update()
+    {
+        if (Input.GetMouseButton(0) && (toolsPicker.selectedTool == toolsPicker.brushName))
+        {
+            Painting(colorPicker.newColor);
+        }
+        if (Input.GetMouseButton(0) && (toolsPicker.selectedTool == toolsPicker.fillName))
+        {
+            Painting(colorPicker.newColor);
+        }
+        if (Input.GetMouseButton(0) && (toolsPicker.selectedTool == toolsPicker.eraserName))
+        {
+            Painting(Color.white);
+        }
+    }
+
+    //Работа с текстурой
     private void OnValidate()
     {
         if (_texture == null)
         {
-            _texture = new Texture2D(_textureSize, _textureSize);
+            _texture = new Texture2D(textureSize, textureSize);
         }
-        if (_texture.width != _textureSize)
+        if (_texture.width != textureSize)
         {
-            _texture.Reinitialize(_textureSize, _textureSize);
+            _texture.Reinitialize(textureSize, textureSize);
         }
             _texture.wrapMode = _textureWrapMode;
             _texture.filterMode = _filterMode;
             _material.mainTexture = _texture;
             _texture.Apply();
     }
-    private void Update()
+
+    //Метод для рисования. Связанный с текстурой
+    private void Painting(Color selectedColor)
     {
-        if (Input.GetMouseButton(0) && (toolsPicker._Brush == true))
+        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit hit;
+        if (_collider.Raycast(ray, out hit, 100f))
         {
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            int rayX = (int)(hit.textureCoord.x * textureSize);
+            int rayY = (int)(hit.textureCoord.y * textureSize);
 
-            RaycastHit hit;
-            if (_collider.Raycast(ray, out hit, 100f))
+            for (int y = 0; y < brushSize; y++)
             {
-                int rayX = (int)(hit.textureCoord.x * _textureSize);
-                int rayY = (int)(hit.textureCoord.y * _textureSize);
-
-                for (int y = 0; y < _brushSize; y++)
+                for (int x = 0; x < brushSize; x++)
                 {
-                    for (int x = 0; x < _brushSize; x++)
-                    {
-                        _texture.SetPixel(rayX + x, rayY + y, colorPicker.newColor);
-                    }
+                    _texture.SetPixel(rayX + x, rayY + y, selectedColor);
                 }
-                _texture.Apply();
             }
+            _texture.Apply();
         }
-        if (Input.GetMouseButton(0) && (toolsPicker._Eraser == true))
-        {
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-
-            RaycastHit hit;
-            if (_collider.Raycast(ray, out hit, 100f))
-            {
-                int rayX = (int)(hit.textureCoord.x * _textureSize);
-                int rayY = (int)(hit.textureCoord.y * _textureSize);
-
-                for (int y = 0; y < _brushSize; y++)
-                {
-                    for (int x = 0; x < _brushSize; x++)
-                    {
-                        _texture.SetPixel(rayX + x, rayY + y, _color);
-                    }
-                }
-                _texture.Apply();
-            }
-        }
-
-        if(Input.GetMouseButton(0) && (toolsPicker._Fill == true)) {
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-
-            RaycastHit hit;
-            if (_collider.Raycast(ray, out hit, 200f))
-            {
-                int rayX = (int)(hit.textureCoord.x * _textureSize);
-                int rayY = (int)(hit.textureCoord.y * _textureSize);
-
-                for (int y = 0; y < _brushSize; y++)
-                {
-                    for (int x = 0; x < _brushSize; x++)
-                    {
-                        _texture.SetPixel(rayX + x, rayY + y, _color);
-                    }
-                }
-                _texture.Apply();
-        }
-    }
     }
 }

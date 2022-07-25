@@ -151,8 +151,8 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 641659599}
   - {fileID: 607830357}
+  - {fileID: 641659599}
   - {fileID: 2081290025}
   - {fileID: 2012904168}
   - {fileID: 1821064537}
@@ -174,7 +174,6 @@ GameObject:
   - component: {fileID: 78650524}
   - component: {fileID: 78650523}
   - component: {fileID: 78650522}
-  - component: {fileID: 78650525}
   m_Layer: 5
   m_Name: btnLegMashroom
   m_TagString: Untagged
@@ -296,21 +295,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78650520}
   m_CullTransparentMesh: 0
---- !u!114 &78650525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78650520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd3aa0afc755e14fa7a81e66b29148d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _texture: {fileID: 0}
-  selectColor:
-  - {fileID: 78650522}
 --- !u!1 &135925419
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +306,7 @@ GameObject:
   - component: {fileID: 135925420}
   - component: {fileID: 135925421}
   - component: {fileID: 135925422}
-  - component: {fileID: 135925423}
+  - component: {fileID: 135925424}
   m_Layer: 0
   m_Name: glareMushroom
   m_TagString: painting
@@ -444,7 +428,7 @@ PolygonCollider2D:
       - {x: -0.09198556, y: -0.7321021}
       - {x: 0.017939815, y: -0.6710324}
       - {x: 0.14007913, y: -0.50003743}
---- !u!114 &135925423
+--- !u!114 &135925424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -456,7 +440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e6defffc1c00e478227887ea4e9e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  solid: {fileID: 135925421}
 --- !u!1 &161769292
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -538,6 +520,7 @@ GameObject:
   - component: {fileID: 206941090}
   - component: {fileID: 206941089}
   - component: {fileID: 206941091}
+  - component: {fileID: 206941094}
   m_Layer: 5
   m_Name: btnFill
   m_TagString: fill
@@ -589,10 +572,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2115620028}
+      - m_Target: {fileID: 206941094}
         m_TargetAssemblyTypeName: toolsPicker, Assembly-CSharp
         m_MethodName: changeTools
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -641,7 +624,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.046855927, y: 0.34490967}
@@ -685,6 +668,19 @@ RectTransform:
   m_AnchoredPosition: {x: 353.7, y: 117.100006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &206941094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206941088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9143c916eeabae4d965598cc16fe63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tools: []
 --- !u!1 &491730713
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,8 +693,6 @@ GameObject:
   - component: {fileID: 491730717}
   - component: {fileID: 491730716}
   - component: {fileID: 491730715}
-  - component: {fileID: 491730719}
-  - component: {fileID: 491730720}
   m_Layer: 5
   m_Name: btnHatMushroom
   m_TagString: Untagged
@@ -820,47 +814,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491730713}
   m_CullTransparentMesh: 0
---- !u!61 &491730719
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491730713}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.04148674, y: 0.14912415}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 98.13841, y: 97.923294}
-  m_EdgeRadius: 0
---- !u!114 &491730720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491730713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd3aa0afc755e14fa7a81e66b29148d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _texture: {fileID: 0}
-  selectColor:
-  - {fileID: 491730715}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +850,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -975,7 +928,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 59567912}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &607830358
 SpriteRenderer:
@@ -1040,7 +993,7 @@ GameObject:
   - component: {fileID: 641659599}
   - component: {fileID: 641659602}
   - component: {fileID: 641659601}
-  - component: {fileID: 641659600}
+  - component: {fileID: 641659603}
   m_Layer: 0
   m_Name: background
   m_TagString: Untagged
@@ -1056,26 +1009,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641659598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.097, y: -0.024, z: 0.87}
+  m_LocalPosition: {x: 0.097, y: -0.024, z: 1.21}
   m_LocalScale: {x: 11.77105, y: 12.995557, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 59567912}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &641659600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641659598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65e6defffc1c00e478227887ea4e9e34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  solid: {fileID: 641659602}
 --- !u!61 &641659601
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1154,6 +1094,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &641659603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641659598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e6defffc1c00e478227887ea4e9e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &863421972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1227,6 @@ GameObject:
   - component: {fileID: 895952114}
   - component: {fileID: 895952113}
   - component: {fileID: 895952112}
-  - component: {fileID: 895952115}
   m_Layer: 5
   m_Name: btnUnderHatMushroom
   m_TagString: Untagged
@@ -1397,21 +1348,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895952110}
   m_CullTransparentMesh: 0
---- !u!114 &895952115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895952110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd3aa0afc755e14fa7a81e66b29148d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _texture: {fileID: 0}
-  selectColor:
-  - {fileID: 895952112}
 --- !u!1 &1002833743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,7 +1359,7 @@ GameObject:
   - component: {fileID: 1002833744}
   - component: {fileID: 1002833745}
   - component: {fileID: 1002833746}
-  - component: {fileID: 1002833747}
+  - component: {fileID: 1002833748}
   m_Layer: 0
   m_Name: grass1
   m_TagString: painting
@@ -1616,7 +1552,7 @@ PolygonCollider2D:
       - {x: -2.3639624, y: 1.5203234}
       - {x: -2.400604, y: 1.5325373}
       - {x: -2.400604, y: 1.4714676}
---- !u!114 &1002833747
+--- !u!114 &1002833748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1628,7 +1564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e6defffc1c00e478227887ea4e9e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  solid: {fileID: 1002833745}
 --- !u!1 &1148169839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,6 +1577,7 @@ GameObject:
   - component: {fileID: 1148169841}
   - component: {fileID: 1148169840}
   - component: {fileID: 1148169842}
+  - component: {fileID: 1148169845}
   m_Layer: 5
   m_Name: btnBrush
   m_TagString: brush
@@ -1693,10 +1629,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2115620028}
+      - m_Target: {fileID: 1148169845}
         m_TargetAssemblyTypeName: toolsPicker, Assembly-CSharp
         m_MethodName: changeTools
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1789,6 +1725,19 @@ RectTransform:
   m_AnchoredPosition: {x: 161, y: 121.98999}
   m_SizeDelta: {x: 141.54, y: 147.99}
   m_Pivot: {x: 0.4999997, y: 0.49999958}
+--- !u!114 &1148169845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148169839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9143c916eeabae4d965598cc16fe63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tools: []
 --- !u!1 &1299932798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,6 +1751,7 @@ GameObject:
   - component: {fileID: 1299932802}
   - component: {fileID: 1299932801}
   - component: {fileID: 1299932800}
+  - component: {fileID: 1299932804}
   m_Layer: 5
   m_Name: btnEraser
   m_TagString: eraser
@@ -1839,7 +1789,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.034778595, y: -1.7317657}
@@ -1899,10 +1849,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2115620028}
+      - m_Target: {fileID: 1299932804}
         m_TargetAssemblyTypeName: toolsPicker, Assembly-CSharp
         m_MethodName: changeTools
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1949,6 +1899,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299932798}
   m_CullTransparentMesh: 1
+--- !u!114 &1299932804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299932798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9143c916eeabae4d965598cc16fe63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tools: []
 --- !u!1 &1319416191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,7 +1924,6 @@ GameObject:
   - component: {fileID: 1319416195}
   - component: {fileID: 1319416194}
   - component: {fileID: 1319416193}
-  - component: {fileID: 1319416196}
   m_Layer: 5
   m_Name: btnGrass2
   m_TagString: Untagged
@@ -2083,21 +2045,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319416191}
   m_CullTransparentMesh: 0
---- !u!114 &1319416196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319416191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd3aa0afc755e14fa7a81e66b29148d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _texture: {fileID: 0}
-  selectColor:
-  - {fileID: 1319416193}
 --- !u!1 &1355378365
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,7 +2096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
+  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2186,7 +2133,6 @@ GameObject:
   - component: {fileID: 1706074219}
   - component: {fileID: 1706074218}
   - component: {fileID: 1706074217}
-  - component: {fileID: 1706074220}
   m_Layer: 5
   m_Name: btnGrass1
   m_TagString: Untagged
@@ -2308,21 +2254,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706074215}
   m_CullTransparentMesh: 0
---- !u!114 &1706074220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1706074215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd3aa0afc755e14fa7a81e66b29148d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _texture: {fileID: 0}
-  selectColor:
-  - {fileID: 1706074217}
 --- !u!1 &1777221790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2334,7 +2265,7 @@ GameObject:
   - component: {fileID: 1777221791}
   - component: {fileID: 1777221792}
   - component: {fileID: 1777221793}
-  - component: {fileID: 1777221794}
+  - component: {fileID: 1777221795}
   m_Layer: 0
   m_Name: grass2
   m_TagString: painting
@@ -2503,7 +2434,7 @@ PolygonCollider2D:
       - {x: 1.1110084, y: -0.82490045}
       - {x: 1.5018542, y: -0.6905472}
       - {x: 1.8194164, y: -0.6050497}
---- !u!114 &1777221794
+--- !u!114 &1777221795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2515,7 +2446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e6defffc1c00e478227887ea4e9e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  solid: {fileID: 1777221792}
 --- !u!1 &1821064536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2527,7 +2457,7 @@ GameObject:
   - component: {fileID: 1821064537}
   - component: {fileID: 1821064538}
   - component: {fileID: 1821064539}
-  - component: {fileID: 1821064540}
+  - component: {fileID: 1821064541}
   m_Layer: 0
   m_Name: legMushroom
   m_TagString: painting
@@ -2722,7 +2652,7 @@ PolygonCollider2D:
       - {x: -0.96219444, y: -2.114577}
       - {x: -1.1087615, y: -1.8458707}
       - {x: -1.206473, y: -1.7359453}
---- !u!114 &1821064540
+--- !u!114 &1821064541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2734,7 +2664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e6defffc1c00e478227887ea4e9e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  solid: {fileID: 1821064538}
 --- !u!28 &1906475765
 Texture2D:
   m_ObjectHideFlags: 0
@@ -2793,7 +2722,7 @@ GameObject:
   - component: {fileID: 2012904168}
   - component: {fileID: 2012904169}
   - component: {fileID: 2012904170}
-  - component: {fileID: 2012904171}
+  - component: {fileID: 2012904172}
   m_Layer: 0
   m_Name: underHatMashroom
   m_TagString: painting
@@ -2954,7 +2883,7 @@ PolygonCollider2D:
       - {x: 2.3533406, y: -1.0715048}
       - {x: 2.5243356, y: -1.034863}
       - {x: 2.6586888, y: -0.9493655}
---- !u!114 &2012904171
+--- !u!114 &2012904172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2966,7 +2895,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e6defffc1c00e478227887ea4e9e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  solid: {fileID: 2012904169}
 --- !u!1 &2041117820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3058,7 +2986,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041117820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.8}
+  m_LocalPosition: {x: 0, y: 0, z: -0.04}
   m_LocalScale: {x: 5.9096003, y: 6.4948997, z: 0.005799735}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3395,7 +3323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e6defffc1c00e478227887ea4e9e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  solid: {fileID: 2081290026}
 --- !u!1 &2115620024
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,7 +3333,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2115620026}
   - component: {fileID: 2115620025}
-  - component: {fileID: 2115620028}
   - component: {fileID: 2115620029}
   m_Layer: 0
   m_Name: Painter
@@ -3427,15 +3353,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f22f0df9ff1b44c94bfa8996a15a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textureSize: 128
   _textureWrapMode: 0
   _filterMode: 0
   _texture: {fileID: 1906475765}
   _material: {fileID: 2100000, guid: 45a9254e6a3dad148ba99f3e9e308b68, type: 2}
   _camera: {fileID: 519420031}
   _collider: {fileID: 2041117821}
-  _color: {r: 0.80392164, g: 0.80392164, b: 0.80392164, a: 0}
-  _brushSize: 8
+  brushSize: 8
+  textureSize: 128
 --- !u!4 &2115620026
 Transform:
   m_ObjectHideFlags: 0
@@ -3451,22 +3376,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2115620028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115620024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9143c916eeabae4d965598cc16fe63f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectTool:
-  - {fileID: 1148169840}
-  - {fileID: 206941089}
-  - {fileID: 1299932801}
 --- !u!114 &2115620029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3479,7 +3388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd3aa0afc755e14fa7a81e66b29148d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _texture: {fileID: 0}
   selectColor:
   - {fileID: 491730715}
   - {fileID: 895952112}
