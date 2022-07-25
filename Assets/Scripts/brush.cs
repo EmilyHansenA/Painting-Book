@@ -10,7 +10,6 @@ public class brush : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private Collider _collider;
 
-    //Размер кисти и текстуры
     [SerializeField] private int brushSize = 8;
     [SerializeField] private int textureSize = 128;
     private void Update()
@@ -28,8 +27,6 @@ public class brush : MonoBehaviour
             Painting(Color.white);
         }
     }
-
-    //Работа с текстурой
     private void OnValidate()
     {
         if (_texture == null)
@@ -45,8 +42,6 @@ public class brush : MonoBehaviour
             _material.mainTexture = _texture;
             _texture.Apply();
     }
-
-    //Метод для рисования. Связанный с текстурой
     private void Painting(Color selectedColor)
     {
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);

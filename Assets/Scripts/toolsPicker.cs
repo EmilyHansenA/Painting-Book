@@ -7,7 +7,6 @@ public class toolsPicker : MonoBehaviour
 
     internal static string selectedTool;
 
-    //Названия инструментов
     internal static string brushName = "brush";
     internal static string fillName = "fill";
     internal static string eraserName = "eraser";
